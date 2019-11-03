@@ -15,7 +15,7 @@ import static org.lwjgl.glfw.GLFW.GLFW_KEY_UNKNOWN;
 @Mod.EventBusSubscriber(modid = ROIC.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class KeybindHandler {
 
-    public static final KeyBinding hotbarModifier = new KeyBinding(ROIC.MODID + ".key.hotbarModifier", GLFW_KEY_UNKNOWN, "key.categories" + ROIC.MODID);
+    public static final KeyBinding hotbarModifier = new KeyBinding(ROIC.MODID + ".key.hotbarModifier", GLFW_KEY_UNKNOWN, "key.categories." + ROIC.MODID);
 
     @SubscribeEvent
     public static void clientStuff(FMLClientSetupEvent event) {

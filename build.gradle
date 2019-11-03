@@ -36,7 +36,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                roic {
                     source sourceSets.main
                 }
             }
@@ -50,10 +50,22 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                roic {
                     source sourceSets.main
                 }
             }
+        }
+        data {
+            properties 'forge.logging.markers': 'REGISTRIES,REGISTRYDUMP'
+            properties 'forge.logging.console.level': 'debug'
+            properties 'fml.earlyprogresswindow': 'false'
+            workingDirectory project.file('run')
+            mods {
+                roic {
+                    source sourceSets.main
+                }
+            }
+            args '--mod', 'roic', '--all', '--output', file('src/generated/resources/')
         }
     }
 }
@@ -96,6 +108,11 @@ jar {
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
+}
+
+processResources {
+    // Exclude datagenerator .cache directory
+    exclude '.cache'
 }
 
 

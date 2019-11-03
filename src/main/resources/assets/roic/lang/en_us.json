@@ -1,3 +1,5 @@
 {
-	"item.roic.roic": "Ring of Inventory Cycle"
+  "item.roic.roic": "Ring of Inventory Cycle",
+  "key.categories.roic": "Ring of Inventory Cycle",
+  "roic.key.hotbarModifier": "Hotbar Modifier"
 }
