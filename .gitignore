@@ -1,6 +1,11 @@
 ## Windows
 Thumbs.db
 
+
+# Data Generator cache
+/src/generated/resources/.cache/
+
+
 ## gradle
 /.gradle
 /build

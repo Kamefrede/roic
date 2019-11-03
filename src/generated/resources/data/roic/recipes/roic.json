@@ -1,0 +1,34 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "roic:no_ring"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "pattern": [
+          "lgi",
+          "g g",
+          "igi"
+        ],
+        "key": {
+          "g": {
+            "tag": "forge:ingots/gold"
+          },
+          "i": {
+            "tag": "forge:nuggets/iron"
+          },
+          "l": {
+            "tag": "forge:gems/lapis"
+          }
+        },
+        "result": {
+          "item": "roic:roic"
+        }
+      }
+    }
+  ]
+}
