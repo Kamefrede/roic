@@ -14,7 +14,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import org.apache.logging.log4j.Level;
 
 
 @OnlyIn(Dist.CLIENT)
@@ -24,7 +23,6 @@ public class EventHandler {
 
     @SubscribeEvent
     public static void scrollEvent(InputEvent.MouseScrollEvent event){
-        ROIC.LOGGER.log(Level.INFO, KeybindHandler.hotbarModifier.isPressed());
         boolean invert = ConfigHandler.CLIENT.invertDirection.get();
         boolean noRing = ConfigHandler.COMMON.disableRing.get();
         boolean direction = event.getScrollDelta() == -1.0;
