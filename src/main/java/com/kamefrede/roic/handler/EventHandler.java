@@ -17,27 +17,17 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = ROIC.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class EventHandler {
 
-    public static final String TAG_LAST_POS1 = "roic:lastpos1";
-    public static final String TAG_LAST_POS2 = "roic:lastpos2";
-
     @SubscribeEvent
     public static void scrollEvent(InputEvent.MouseScrollEvent event){
+        boolean invert = ConfigHandler.CLIENT.invertDirection.get();
+        boolean direction = event.getScrollDelta() == -1.0;
         PlayerEntity player = Minecraft.getInstance().player;
+
+        if (invert)
+            direction = !direction;
         if(player.isSneaking())
             if (Util.findItem(Registration.ROIC_ITEM, player) != ItemStack.EMPTY){
-                int pos1 = player.inventory.currentItem;
-                int pos2 = pos1 + 9;
-                if(player.getPersistentData().contains(TAG_LAST_POS1) && player.getPersistentData().getInt(TAG_LAST_POS1) == pos1){
-                    pos2 = player.getPersistentData().getInt(TAG_LAST_POS2) + 9;
-                    if(pos2 > 3 * 9 + pos1){
-                        pos2 = pos1 + 9;
-                    }
-                }
-                ItemStack stack1 = player.inventory.getCurrentItem();
-                ItemStack stack2 = player.inventory.getStackInSlot(pos2);
-                player.getPersistentData().putInt(TAG_LAST_POS1, pos1);
-                player.getPersistentData().putInt(TAG_LAST_POS2, pos2);
-                PacketHandler.sendToServer(new PacketSwapItems(stack1, stack2, pos1, pos2));
+                PacketHandler.sendToServer(new PacketSwapItems(direction && invert));
                 event.setCanceled(true);
             }
 
