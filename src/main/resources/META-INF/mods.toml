@@ -1,0 +1,35 @@
+
+modLoader="javafml" 
+loaderVersion="[28,)" 
+issueTrackerURL="http://github.com/kamefrede/roic/issues" 
+[[mods]] #mandatory
+modId="roic"
+version="0.0.1" 
+displayName="Ring of Inventory Cycle" 
+updateJSONURL="http://github.com/kamefrede/roic" 
+displayURL="http://github.com/kamefrede/roic"
+logoFile="roic.png"
+credits="yrsegal, BardWasTaken"
+authors="Kamefrede" 
+description='''
+'''
+
+
+[[dependencies.roic]]
+    modId="forge"
+    mandatory=true
+    versionRange="[28,)" 
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.roic]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.14.4]"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.roic]]
+    modId="curios"
+    mandatory=true
+    versionRange="[FORGE-1.14.4-1.0.2,)"
+    ordering="AFTER"
+    side="BOTH"
