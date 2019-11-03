@@ -1,4 +1,4 @@
-package com.kamefrede.roic;
+package com.kamefrede.roic.util;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;

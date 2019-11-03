@@ -1,15 +1,11 @@
 package com.kamefrede.roic.item;
 
-import com.kamefrede.roic.ROIC;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import top.theillusivec4.curios.api.capability.CuriosCapability;
 import top.theillusivec4.curios.api.capability.ICurio;
 import top.theillusivec4.curios.common.capability.CapCurioItem;
 
@@ -17,9 +13,8 @@ import javax.annotation.Nullable;
 
 public class ROICItem extends Item {
 
-    public ROICItem(){
-        super(new Item.Properties().group(ItemGroup.TOOLS).maxStackSize(1).defaultMaxDamage(0));
-        this.setRegistryName(ROIC.MODID, "roic");
+    public ROICItem(Item.Properties props) {
+        super(props);
     }
 
     @Nullable
