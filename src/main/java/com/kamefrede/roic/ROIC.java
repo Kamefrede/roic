@@ -5,6 +5,7 @@ import com.kamefrede.roic.network.PacketHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.GuiScreenEvent;
@@ -53,11 +54,5 @@ public class ROIC
     }
 
 
-    @SubscribeEvent
-    public void scrollEvent(InputEvent.MouseScrollEvent event){
-        if(Minecraft.getInstance().player.isSneaking())
-            if (Util.findItem(Registration.ROIC_ITEM, Minecraft.getInstance().player) != ItemStack.EMPTY){
 
-            }
-    }
 }

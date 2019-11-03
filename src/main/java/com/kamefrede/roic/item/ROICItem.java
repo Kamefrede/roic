@@ -42,4 +42,10 @@ public class ROICItem extends Item {
             }
         });
     }
+
+    @Override
+    public boolean hasEffect(ItemStack stack) {
+        return true;
+    }
+
 }

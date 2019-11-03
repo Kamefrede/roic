@@ -1,5 +1,6 @@
 package com.kamefrede.roic.network;
 
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.fml.network.NetworkEvent;
@@ -21,18 +22,25 @@ public class PacketSwapItems {
         this.pos2 = pos2;
     }
 
-    public void encode(PacketBuffer buf){
-        buf.writeItemStack(stack1);
-        buf.writeItemStack(stack2);
-        buf.writeVarInt(pos1);
-        buf.writeVarInt(pos2);
+    public static void encode(PacketSwapItems msg, PacketBuffer buf){
+        buf.writeItemStack(msg.stack1);
+        buf.writeItemStack(msg.stack2);
+        buf.writeVarInt(msg.pos1);
+        buf.writeVarInt(msg.pos2);
     }
 
     public static PacketSwapItems decode(PacketBuffer buf){
         return new PacketSwapItems(buf.readItemStack(), buf.readItemStack(), buf.readVarInt(), buf.readVarInt());
     }
 
-    public void handle(Supplier<NetworkEvent.Context> ctx) {
+    public static void handle(PacketSwapItems msg, Supplier<NetworkEvent.Context> ctx) {
+        ctx.get().enqueueWork(() ->{
+            PlayerEntity playerEntity = ctx.get().getSender();
+            playerEntity.inventory.setInventorySlotContents(msg.pos2, msg.stack1);
+            playerEntity.inventory.setInventorySlotContents(msg.pos1, msg.stack2);
+
+        });
+
 
     }
 }
